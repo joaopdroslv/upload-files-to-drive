@@ -100,9 +100,9 @@ def upload_file_to_drive_as_google_sheet(file_path, token, folder_id):
     file_name = os.path.basename(file_path)
     # File metadata with MIME type for Google Sheets
     file_metadata = {
-        "name": file_name,
-        "mimeType": "application/vnd.google-apps.spreadsheet",  # Convert to Google Sheets format
-        "parents": [folder_id]
+        "name"      : file_name,
+        "mimeType"  : "application/vnd.google-apps.spreadsheet",  # Convert to Google Sheets format
+        "parents"   : [folder_id]
     }
     media = MediaFileUpload(file_path, mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", resumable=True)
     file = service.files().create(
