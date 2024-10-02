@@ -4,14 +4,6 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 import os
-from dotenv import load_dotenv
-
-
-# Carregar variáveis de ambiente do arquivo .env
-load_dotenv()
-CLIENT_ID = os.getenv("CLIENT_ID")
-CLIENT_SECRET = os.getenv("CLIENT_SECRET")
-TARGET_FOLDER_ID = os.getenv("TARGET_FOLDER_ID")
 
 
 def generate_tokens(client_id, client_secret):
@@ -114,7 +106,7 @@ def upload_file_to_drive_as_google_sheet(file_path, token, folder_id):
 
 
 def get_token_auth(client_id, client_secret):
-    access_token, refresh_token = generate_tokens(CLIENT_ID, CLIENT_SECRET)
+    access_token, refresh_token = generate_tokens(client_id, client_secret)
     token_auth = {
         "token"         : access_token,
         "refresh_token" : refresh_token,
